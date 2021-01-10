@@ -1,17 +1,14 @@
-# Default values for pychart.
+# Default values for springboot.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: guanyebo/pyhelm-test
+  repository: weichiehchang/spring-demo
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart version.
-  tag: "v2"
-
-color:
-  value: 'blue'
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.0.1"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -41,19 +38,17 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: true
-  annotations:
-    #nginx.ingress.kubernetes.io/app-root: /
+  annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: "/$2"
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/default-backend: "py-pychart"
+    #nginx.ingress.kubernetes.io/app-root: "/"
   hosts:
-    - host: pychart.local
+    - host: chart-jay.local
       paths: ["/bbb(/|$)(.*)"]
-    - host: pychart.local
+    - host: chart-jay.local
       paths: ["/aaa(/|$)(.*)"]
   #  - secretName: chart-example-tls
   #    hosts:

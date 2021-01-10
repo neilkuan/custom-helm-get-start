@@ -9,5 +9,9 @@ except:
 def index_page():
     return 'hello world {a}'.format(a=COLOR) 
 
+@app.route('/hello', methods=['GET', 'POST'])
+def index_page_hello():
+    return 'hello world {a} path=hello'.format(a=COLOR) 
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=80)

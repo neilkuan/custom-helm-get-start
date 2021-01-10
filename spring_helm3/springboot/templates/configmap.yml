@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cathaydemo-config
+  labels:
+    app: cathydemo-config
+data:
+  application.yml: |-
+    userDemoName: jay
+
+
